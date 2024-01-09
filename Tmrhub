@@ -1,0 +1,122 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+  Name = "TMR Hub",
+  LoadingTitle = "TMR Hub | By TMR team",
+  LoadingSubtitle = "by TMR team",
+  ConfigurationSaving = {
+    Enabled = false,
+    FolderName = nil, -- Create a custom folder for your hub/game
+    FileName = "TMRstorage"
+  },
+  Discord = {
+    Enabled = false,
+    Invite = "https://discord.gg/8Fy4KR5gnF", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+    RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+  },
+  KeySystem = true, -- Set this to true to use our key system
+  KeySettings = {
+    Title = "TMR Hub | Universal script",
+    Subtitle = "Key System",
+    Note = "Key In Discord Server",
+    FileName = "TMRKey", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+    SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+    GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+    Key = {"I4KC"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+  },
+  Drag = true, -- Make the GUI draggable
+  AltClose = true, -- Allow the GUI to be closed by pressing Alt
+  AltOpen = true, -- Open the GUI when pressing Alt
+})
+local MainTab = Window:CreateTab("section1", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+Rayfield:Notify({
+  Title = "You executed the script",
+  Content = "Very cool script by TMR team",
+  Duration = 5,
+  Image = 13047715178,
+  Actions = { -- Notification Buttons
+    Ignore = {
+      Name = "Okay!",
+      Callback = function()
+        print("The user tapped Okay!")
+      end
+    },
+  },
+})
+
+local Button1 = MainSection:CreateButton({
+  Name = "Fly",
+  Callback = function()
+    if _G.flying == nil then
+      _G.flying = true
+
+      -- Set the humanoid's walkspeed to 0
+      game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
+
+      -- Create a loop that will run until the "Fly" button is pressed again
+      while _G.flying do
+        -- Move the player up
+        game.Players.LocalPlayer.Character.Humanoid:Move(Vector3.new(0, 5, 0))
+
+        -- Wait for 0.1 seconds
+        wait(0.1)
+      end
+    end
+  end,
+})
+
+local Button = MainSection:CreateButton({
+  Name = "Infinite Jump Toggle",
+  Callback = function()
+    --Toggles the infinite jump between on or off on every script run
+    _G.infinjump = not _G.infinjump
+
+    if _G.infinJumpStarted == nil then
+      --Ensures this only runs once to save resources
+      _G.infinJumpStarted = true
+
+      --Notifies readiness
+      game.StarterGui:SetCore("SendNotification", {Title="Youtube Hub"; Text="Infinite Jump Activated!"; Duration=5;})
+
+      --The actual infinite jump
+      local plr = game:GetService('Players').LocalPlayer
+      local m = plr:GetMouse()
+      m.KeyDown:connect(function(k)
+        if _G.infinjump then
+          if k:byte() == 32 then
+            humanoid = game:GetService('Players').LocalPlayer.
+local Teleports = Window:CreateTab("buttons ", nil) -- Title, Image
+
+local Button1 = Teleports:CreateButton({
+  Name = "Button1",
+  Callback = function()
+    --Teleport to the Starter Island
+  end,
+})
+
+local Button2 = Teleports:CreateButton({
+  Name = "Button2",
+  Callback = function()
+    --Teleport to the Pirate Island
+  end,
+})
+
+local Button3 = Teleports:CreateButton({
+  Name = "Button3",
+  Callback = function()
+    --Teleport to the Pineapple Paradise
+  end,
+})
+local Misc = Window:CreateTab("🎲 Misc", nil) -- Title, Image
+
+local Toggle1 = Misc:CreateToggle({
+  Name = "Auto Farm",
+  CurrentValue = false,
+  Flag = "Toggle1",
+  Callback = function(Value)
+    --Automatically farm resources
+  end,
+})
+
